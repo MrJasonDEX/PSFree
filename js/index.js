@@ -465,3 +465,25 @@ function onCheckboxChange(checked) {
     console.log('Checkbox is unchecked!');
   }
 }
+
+// Global error handler
+window.onerror = function(message, source, lineno, colno, error) {
+  const consoleDev = document.getElementById("console");
+  if (consoleDev) {
+    consoleDev.append(`Error: ${message} at ${source}:${lineno}\n`);
+    consoleDev.scrollTop = consoleDev.scrollHeight;
+  }
+  // Optionally show a toast
+  showToast(`Error: ${message}`);
+};
+
+// Toast notification function
+function showToast(msg) {
+  let toast = document.createElement('div');
+  toast.className = 'toast align-items-center text-bg-warning border-0 show position-fixed bottom-0 end-0 m-3';
+  toast.role = 'alert';
+  toast.innerHTML = `<div class="d-flex"><div class="toast-body">${msg}</div>
+    <button type="button" class="btn-close btn-close-white me-2 m-auto" onclick="this.parentElement.parentElement.remove()"></button></div>`;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 4000);
+}

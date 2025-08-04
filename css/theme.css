@@ -128,16 +128,65 @@ h2, h3, .modal-title {
   border-radius: 8px;
 }
 
-/* Responsive tweaks */
-@media (max-width: 900px) {
-  .navbar-brand { font-size: 1.5em; }
-  .container { max-width: 98vw; }
+/* Toast notification styles */
+.toast {
+  z-index: 3000;
+  min-width: 220px;
+  box-shadow: 0 2px 12px #c299fc80;
+  border-radius: 12px;
+  font-size: 1em;
 }
 
-@media (max-width: 600px) {
-  .navbar-brand { font-size: 1.1em; }
-  .modal-content { padding: 12px 4px; }
-  .row .col { padding: 4px; }
+/* Focus outlines for accessibility */
+.btn:focus, .btn-purple:focus, .form-check-input:focus {
+  outline: 2px solid #c299fc;
+  outline-offset: 2px;
+}
+
+/* Theme transitions */
+body {
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+  z-index: 3001;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px #6c2eb660;
+  font-size: 1.3em;
+}
+
+/* Help button */
+#help-btn {
+  z-index: 3001;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px #0282ff60;
+  font-size: 1.3em;
+}
+
+/* Section divider */
+.section-divider {
+  border-top: 2px solid #c299fc;
+  margin: 32px 0;
+  opacity: 0.3;
+}
+
+/* Modal fade animation */
+.modal.fade .modal-dialog {
+  transition: transform 0.3s cubic-bezier(.36,.07,.19,.97);
+  transform: translateY(40px);
+}
+.modal.show .modal-dialog {
+  transform: translateY(0);
+}
+
+/* Button hover/active animation */
+.btn-purple, .btn-info {
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.btn-purple:hover, .btn-info:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 24px #c299fc80;
 }
 
 /* Glowing effect for important buttons */
