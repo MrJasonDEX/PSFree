@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html manifest="./PSFree.manifest">
+  <head>
+    <meta charset="UTF-8">
+    <title>PSFree</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Theme -->
+    <link rel="stylesheet" href="./css/theme.css">
+    <script>
+      function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));document.title="Installing offline cache: " + Percent + "%";}
+      function DisplayCacheProgress(){setTimeout(function(){document.title="Cache Success !";},1000);setTimeout(function(){window.location.href = document.referrer;},3000);}
+      window.applicationCache.addEventListener("progress",DLProgress,false);
+      window.applicationCache.oncached=function(e){DisplayCacheProgress();};
+      window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+    </script>
+  </head>
+  <body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient bg-purple mb-4">
+      <div class="container-fluid">
+        <span class="navbar-brand fw-bold fs-3" id="header-title">PSFree</span>
+        <div class="d-flex gap-2">
+          <button onclick="showpayloads()" class="btn btn-purple" id="payloadsbtn">Payloads</button>
+          <button class="btn btn-purple" id="generate-cache-btn">Force-Cache</button>
+          <button class="btn btn-purple" id="update-exploit">Update-Exploit</button>
+          <button onclick="showsettings()" class="btn btn-purple" id="settings-btn">Settings</button>
+          <button onclick="showabout()" class="btn btn-purple" id="about-btn">About</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div id="update-results" class="mb-3"></div>
+      <h2 id="PS4FW" class="text-center mb-4">PS4 FW: 0.00 | Compatible</h2>
+
+      <div id="jailbreak-page" class="text-center">
+        <div class="d-flex justify-content-center mb-4">
+          <button id="jailbreak" class="btn btn-lg btn-purple rounded-circle" title="PlayStation">
+            <!-- PlayStation SVG logo -->
+            <svg viewBox="0 0 32 32" width="64" height="64" fill="currentColor"><path d="M0.69116 21.9548C-0.506476 22.7935 -0.284724 24.2384 2.44769 25.1419C5.18011 26.0455 8.35603 26.2323 11.1505 25.729C11.0707 25.729 11.3102 25.729 11.1505 25.729V22.8774L8.43588 23.8C7.39792 24.1355 6.35997 24.2194 5.32202 23.9677C4.5236 23.7161 4.68328 23.2129 5.64139 22.7935L11.1505 20.7806V17.6774L3.48565 20.4452C2.52754 20.7806 1.56943 21.2839 0.69116 21.9548ZM19.2146 9.37419V17.5097C22.4881 19.1871 25.0431 17.5097 25.0431 13.1484C25.0431 8.70323 23.5261 6.69032 19.1348 5.09677C16.8193 4.25806 14.4241 3.50323 12.0288 3V27.2387L17.6178 29V8.61935C17.6178 7.69677 17.6178 7.02581 18.2565 7.27742C19.1348 7.52903 19.2146 8.45161 19.2146 9.37419ZM29.5941 20.0258C27.2787 19.1871 24.8036 18.8516 22.4083 19.1032C21.0779 19.1906 19.8294 19.5869 18.5759 20.0258V23.2968L23.7656 21.2839C24.8036 20.9484 25.8415 20.8645 26.8795 21.1161C27.6779 21.3677 27.5182 21.871 26.5601 22.2903L18.5759 25.3935V28.5806L29.5941 24.3032C30.3925 23.9677 31.1111 23.5484 31.7499 22.8774C32.3088 22.0387 32.0692 20.8645 29.5941 20.0258Z"></path></svg>
+          </button>
+        </div>
+        <div class="d-flex justify-content-center mb-4">
+          <div class="spinner-border text-purple" id="loader" style="display: none;" role="status"></div>
+        </div>
+      </div>
+
+      <div id="payloads-page" style="display: none;">
+        <ul class="nav nav-pills justify-content-center mb-4">
+          <li class="nav-item"><button id="toolb" class="nav-link btn btn-purple" onclick="showtoolspayloads()">Tools</button></li>
+          <li class="nav-item"><button id="gameb" class="nav-link btn btn-purple" onclick="showgamepayloads()">Games</button></li>
+          <li class="nav-item"><button id="linuxb" class="nav-link btn btn-purple" onclick="showlinuxpayloads()">Linux</button></li>
+        </ul>
+        <div id="payloads-tools">
+          <h2>Tools</h2>
+          <div class="row row-cols-1 row-cols-md-3 g-3">
+            <!-- Example payload button -->
+            <div class="col"><button id="binloader" class="btn btn-purple w-100 mb-2">Bin-Loader</button></div>
+            <div class="col"><button data-func="load_AppDumper" class="btn btn-purple w-100 mb-2">App-Dumper</button></div>
+            <div class="col"><button data-func="load_KernelDumper" class="btn btn-purple w-100 mb-2">Kernel-Dumper</button></div>
+            <div class="col"><button data-func="load_VTXDumper" class="btn btn-purple w-100 mb-2">PS4-Dumper-VTX</button></div>
+            <div class="col"><button data-func="load_App2USB" class="btn btn-purple w-100 mb-2">App2USB</button></div>
+            <div class="col"><button data-func="load_DisableUpdates" class="btn btn-purple w-100 mb-2">Disable-Updates</button></div>
+            <div class="col"><button data-func="load_EnableUpdates" class="btn btn-purple w-100 mb-2">Enable-Updates</button></div>
+            <div class="col"><button data-func="load_FTP" class="btn btn-purple w-100 mb-2">FTP</button></div>
+            <div class="col"><button data-func="load_HistoryBlocker" class="btn btn-purple w-100 mb-2">History-Blocker</button></div>
+            <div class="col"><button data-func="load_KernelClock" class="btn btn-purple w-100 mb-2">Kernel-Clock</button></div>
+            <!--<div class="col"><button data-func="load_Orbis" class="btn btn-purple w-100 mb-2">Orbis-Toolbox</button></div>-->
+            <div class="col"><button data-func="load_PS4Debug" class="btn btn-purple w-100 mb-2">PS4-Debug</button></div>
+            <div class="col"><button data-func="load_ToDex" class="btn btn-purple w-100 mb-2">ToDex</button></div>
+            <div class="col"><button data-func="load_ToDev" class="btn btn-purple w-100 mb-2">ToDev</button></div>
+            <div class="col"><button data-func="load_ToKratos" class="btn btn-purple w-100 mb-2">ToKratos</button></div>
+            <div class="col"><button data-func="load_ToCex" class="btn btn-purple w-100 mb-2">ToCex</button></div>
+            <div class="col"><button data-func="load_BackupDB" class="btn btn-purple w-100 mb-2">Backup-DB</button></div>
+            <div class="col"><button data-func="load_RestoreDB" class="btn btn-purple w-100 mb-2">Restore-DB</button></div>
+            <div class="col"><button data-func="load_RIFRenamer" class="btn btn-purple w-100 mb-2">RIF-Renamer</button></div>
+            <div class="col"><button data-func="load_ExitIDU" class="btn btn-purple w-100 mb-2">ExitIDU</button></div>
+            <div class="col"><button data-func="load_DisableASLR" class="btn btn-purple w-100 mb-2">Disable-ASLR</button></div>
+            <div class="col"><button data-func="load_ModuleDumper" class="btn btn-purple w-100 mb-2">Module-Dumper</button></div>
+            <!--<div class="col"><button data-func="load_WebrRTE" class="btn btn-purple w-100 mb-2">WebRTE</button></div>-->
+            <div class="col"><button data-func="load_PermanentUART" class="btn btn-purple w-100 mb-2">Permanent-UART</button></div>
+            <div class="col"><button data-func="load_PUPDecrypt" class="btn btn-purple w-100 mb-2">PUP-Decrypt</button></div>
+          </div>
+        </div>
+        <div id="payloads-game" style="display: none;">
+          <h2>Game</h2>
+          <div class="row row-cols-1 row-cols-md-3 g-3">
+            <div class="col"><button data-func="load_GTAArbic" class="btn btn-purple w-100 mb-2">GTAV-ArabicGuy-1.27</button></div>
+            <div class="col"><button data-func="load_GTAArbic3" class="btn btn-purple w-100 mb-2">GTAV-ArabicGuy-1.32</button></div>
+            <div class="col"><button data-func="load_GTAArbic33" class="btn btn-purple w-100 mb-2">GTAV-ArabicGuy-1.33</button></div>
+            <div class="col"><button data-func="load_GTABQ133" class="btn btn-purple w-100 mb-2">GTAV-BeefQueefMod-1.33</button></div>
+            <div class="col"><button data-func="load_GTABQ134" class="btn btn-purple w-100 mb-2">GTAV-BeefQueefMod-1.34</button></div>
+            <div class="col"><button data-func="load_GTABQ138" class="btn btn-purple w-100 mb-2">GTAV-BeefQueefMod-1.38</button></div>
+            <div class="col"><button data-func="load_GTAWM132" class="btn btn-purple w-100 mb-2">GTAV-WildeModz-1.32</button></div>
+            <div class="col"><button data-func="load_GTAWM133" class="btn btn-purple w-100 mb-2">GTAV-WildeModz-1.33</button></div>
+            <div class="col"><button data-func="load_GTAWM138" class="btn btn-purple w-100 mb-2">GTAV-WildeModz-1.38</button></div>
+            <div class="col"><button data-func="load_Oysters100" class="btn btn-purple w-100 mb-2">RDR2-OystersMenu-1.00</button></div>
+            <div class="col"><button data-func="load_Oysters113" class="btn btn-purple w-100 mb-2">RDR2-OystersMenu-1.13</button></div>
+            <div class="col"><button data-func="load_Oysters119" class="btn btn-purple w-100 mb-2">RDR2-OystersMenu-1.19</button></div>
+            <div class="col"><button data-func="load_Oysters124" class="btn btn-purple w-100 mb-2">RDR2-OystersMenu-1.24</button></div>
+            <div class="col"><button data-func="load_Oysters124" class="btn btn-purple w-100 mb-2">RDR2-OystersMenu-1.29</button></div>
+          </div>
+        </div>
+        <div id="payloads-linux" style="display: none;">
+          <h2>Linux</h2>
+          <div class="row row-cols-1 row-cols-md-3 g-3">
+            <div class="col">
+              <h2 class="text-center">PS4</h2>
+              <button data-func="load_Linux" class="btn btn-purple w-100 mb-2">1GBVram</button>
+              <button data-func="load_Linux2gb" class="btn btn-purple w-100 mb-2">2GBVram</button>
+              <button data-func="load_Linux3gb" class="btn btn-purple w-100 mb-2">3GBVram</button>
+              <button data-func="load_Linux4gb" class="btn btn-purple w-100 mb-2">4GBVram</button>
+            </div>
+            <div class="col">
+              <h2 class="text-center">PS4-PRO</h2>
+              <button data-func="load_Linux_PRO" class="btn btn-purple w-100 mb-2">1GBVram</button>
+              <button data-func="load_Linux2gb_PRO" class="btn btn-purple w-100 mb-2">2GBVram</button>
+              <button data-func="load_Linux3gb_PRO" class="btn btn-purple w-100 mb-2">3GBVram</button>
+              <button data-func="load_Linux4gb_PRO" class="btn btn-purple w-100 mb-2">4GBVram</button>
+            </div>
+            <div class="col">
+              <h2 class="text-center">PS4-Baikal</h2>
+              <button data-func="load_Linux_Baikal" class="btn btn-purple w-100 mb-2">1GBVram</button>
+              <button data-func="load_Linux2gb_Baikal" class="btn btn-purple w-100 mb-2">2GBVram</button>
+              <button data-func="load_Linux3gb_Baikal" class="btn btn-purple w-100 mb-2">3GBVram</button>
+              <button data-func="load_Linux4gb_Baikal" class="btn btn-purple w-100 mb-2">4GBVram</button>
+            </div>
+            <div class="col">
+              <h2 class="text-center">PS4-Baikal-PRO</h2>
+              <button data-func="load_Linux_PRO_Baikal" class="btn btn-purple w-100 mb-2">1GBVram</button>
+              <button data-func="load_Linux2gb_PRO_Baikal" class="btn btn-purple w-100 mb-2">2GBVram</button>
+              <button data-func="load_Linux3gb_PRO_Baikal" class="btn btn-purple w-100 mb-2">3GBVram</button>
+              <button data-func="load_Linux4gb_PRO_Baikal" class="btn btn-purple w-100 mb-2">4GBVram</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="DebugConsole" class="card bg-dark text-light mt-4" style="display: flex;">
+        <div class="card-header">Debug Console</div>
+        <div class="card-body"><pre id='console' class="mb-0"></pre></div>
+      </div>
+    </div>
+
+    <!-- About Modal -->
+    <div class="modal fade" id="about-popup" tabindex="-1" aria-labelledby="aboutLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-purple text-light">
+          <div class="modal-header">
+            <h2 class="modal-title" id="aboutLabel">About PSFree</h2>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Version: 1.5.1</p>
+            <p>A simple web interface for PS4 jailbreak.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settings-popup" tabindex="-1" aria-labelledby="settingsLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-purple text-light">
+          <div class="modal-header">
+            <h2 class="modal-title" id="settingsLabel">Settings PSFree</h2>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div id="PS4FWOK" class="mb-3">
+              <h3>PS4 Firmwares supported</h3>
+              <div id="listfw">
+                <p>7.00 (HEN only)</p>
+                <p>7.01 (HEN only)</p>
+                <p>7.02 (HEN only)</p>
+                <p>7.50 (HEN only)</p>
+                <p>7.51 (HEN only)</p>
+                <p>7.55 (HEN only)</p>
+                <p>8.00 (HEN only)</p>
+                <p>8.01 (HEN only)</p>
+                <p>8.03 (HEN only)</p>
+                <p>8.50 (HEN only)</p>
+                <p>8.52 (HEN only)</p>
+                <p>9.00</p>
+                <p>9.03</p>
+                <p>9.04 (HEN only)</p>
+                <p>9.50 (HEN only)</p>
+                <p>9.51 (HEN only)</p>
+                <p>9.60</p>
+              </div>
+            </div>
+            <div id="choosejb" class="mb-3">
+              <h3>Choose your flavor</h3>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="hen" value="GoldHEN" onchange="savejbflavor(); choosejb('GoldHEN')">
+                <label class="form-check-label">GoldHEN</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="hen" value="HEN" onchange="savejbflavor(); choosejb('HEN')">
+                <label class="form-check-label">HEN</label>
+              </div>
+              <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" id="ckbaj" />
+                <label class="form-check-label" id="agtext">Auto-Jailbreak</label>
+              </div>
+              <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" id="ckbdc" checked />
+                <label class="form-check-label" id="agtext">Enable Debug Console</label>
+              </div>
+            </div>
+            <button onclick="closesettings()" class="btn btn-light w-100 mb-2" id="close-settings" data-bs-dismiss="modal">Close</button>
+            <button data-func="load_PSFreeFix" class="btn btn-warning w-100" id="install-psfrf" style="display: none;">Install PSFree-Fix</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src='./js/index.js'></script>
+  </body>
+</html>

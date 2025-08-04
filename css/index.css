@@ -1,0 +1,506 @@
+/* Reset and base styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #181018;
+  color: #e0d6ff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: linear-gradient(90deg, #6c2eb6 0%, #181018 100%);
+  box-shadow: 0 2px 16px #6c2eb6a0;
+  z-index: 1000;
+  padding: 18px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-title {
+  color: #c299fc;
+  font-size: 2.5em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 24px #6c2eb6a0;
+}
+
+/* Main layout */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 80px; /* header height */
+}
+
+/* Floating Menu */
+.floating-menu {
+  position: fixed;
+  top: 90px;
+  left: 32px;
+  background: rgba(36, 20, 46, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #6c2eb6a0;
+  padding: 18px 20px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  backdrop-filter: blur(6px);
+}
+
+.menu-btn {
+  background: linear-gradient(90deg, #6c2eb6 0%, #24142e 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 28px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px #6c2eb660;
+  outline: none;
+}
+
+.menu-btn:hover, .menu-btn:focus {
+  background: #c299fc;
+  color: #181018;
+  box-shadow: 0 4px 16px #c299fc80;
+}
+
+/* Main content area */
+#jailbreak-page, #payloads-page {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 400px;
+  position: relative;
+  z-index: 1;
+}
+
+.center-btn-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 48px 0 24px 0;
+}
+
+.ps-btn {
+  background: #6c2eb6;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px #6c2eb680;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.ps-btn:hover {
+  background: #c299fc;
+  color: #181018;
+  box-shadow: 0 8px 32px #c299fc80;
+  transform: scale(1.07);
+}
+
+.ps-btn svg {
+  width: 67px;
+  height: 67px;
+  filter: drop-shadow(0 0px 13px #0282ff33);
+  fill: #c299fc;
+  transition: fill 0.3s, transform 0.3s;
+}
+
+.ps-btn:hover svg {
+  fill: #fff;
+  transform: scale(1.1);
+}
+
+/* Loader */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 32px 0;
+  z-index: 9999;
+}
+
+.loader-circle {
+  border: 6px solid #24142e;
+  border-top: 6px solid #c299fc;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+/* Payloads navigation */
+.floating-menu-payloads {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.floating-menu-payloads button {
+  background: #6c2eb6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px #6c2eb660;
+}
+
+.floating-menu-payloads button:hover {
+  background: #c299fc;
+  color: #181018;
+  box-shadow: 0 4px 16px #c299fc80;
+}
+
+/* Button containers */
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 32px auto;
+  padding: 18px;
+  background: rgba(36, 20, 46, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #6c2eb6a0;
+}
+
+.button-container button {
+  background: #24142e;
+  color: #c299fc;
+  border: 2px solid #6c2eb6;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px #6c2eb660;
+  width: 100%;
+}
+
+.button-container button:hover {
+  background: #6c2eb6;
+  color: #fff;
+  border-color: #c299fc;
+  box-shadow: 0 4px 16px #c299fc80;
+}
+
+/* Section titles */
+h2, h3 {
+  color: #c299fc;
+  text-align: center;
+  margin: 24px 0 12px 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Firmware info */
+#PS4FW {
+  color: #c299fc;
+  text-align: center;
+  margin: 24px 0 12px 0;
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+/* Debug Console */
+#DebugConsole {
+  background: rgba(24, 16, 24, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px #6c2eb660;
+  margin: 32px auto;
+  max-width: 900px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.console {
+  background: #24142e;
+  color: #e0d6ff;
+  border-radius: 8px;
+  padding: 16px;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  font-size: 1em;
+  overflow-x: auto;
+  min-height: 120px;
+  box-shadow: 0 2px 8px #6c2eb660;
+}
+
+/* Popups and overlays */
+.overlay {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(24, 16, 24, 0.8);
+  z-index: 2000;
+  display: none;
+}
+
+.popup {
+  position: fixed;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  background: #24142e;
+  color: #e0d6ff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px #6c2eb6a0;
+  padding: 36px 32px;
+  max-width: 420px;
+  width: 90vw;
+  z-index: 2100;
+  display: none;
+  backdrop-filter: blur(8px);
+}
+
+.close-btn {
+  background: #6c2eb6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: #c299fc;
+  color: #181018;
+}
+
+/* Settings and radio groups */
+#settings-popup label, .radio-group label {
+  margin: 0 12px;
+  font-size: 1em;
+  color: #c299fc;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.radio-group {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+input[type="radio"]:checked + span,
+input[type="checkbox"]:checked + span {
+  color: #c299fc;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #24142e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6c2eb6;
+  border-radius: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .header-title { font-size: 1.5em; }
+  .floating-menu { left: 8px; top: 70px; padding: 10px; }
+  #jailbreak-page, #payloads-page, #DebugConsole { max-width: 98vw; }
+  .button-container { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .header-title { font-size: 1.1em; }
+  .floating-menu { left: 2px; top: 60px; padding: 6px; }
+  .popup { padding: 18px 8px; }
+  .button-container { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+  .ps-btn { width: 60px; height: 60px; }
+  .ps-btn svg { width: 36px; height: 36px; }
+}
+  font-weight: bold;
+}
+
+.radio-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+#choosejb label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9em;
+}
+
+#autojbchkb {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+#autojbchkb input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+#debugconsolechkb {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+#debugconsolechkb input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+#install-psfrl {
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 10px;
+    right: 5px;
+    background: transparent;
+    border: 2px solid #2196F3;
+    color: #008cff;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: 0.25s ease;
+}
+
+#install-psfrl:hover {
+    border: 2px solid #FFB84D;
+    border-radius: 15px;
+    color: #FFB84D;
+    background-color: #333;
+}
+
+#install-psfrf {
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 10px;
+    right: 5px;
+    background: transparent;
+    border: 2px solid #2196F3;
+    color: #008cff;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: 0.25s ease;
+    display: flex;
+}
+
+#install-psfrf:hover {
+    border: 2px solid #FFB84D;
+    border-radius: 15px;
+    color: #FFB84D;
+    background-color: #333;
+}
+
+
+.loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loader-circle {
+    border: 6px solid #24142e;
+    border-top: 6px solid #c299fc;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+
+@media (max-width: 600px) {
+    .header-title { font-size: 1.3em; padding: 5px 14px;}
+    .ps-btn { width: 90px; height: 90px;}
+    .ps-btn svg { width: 44px; height: 44px;}
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.button-container button {
+  background: #24142e;
+  color: #c299fc;
+  border: 2px solid #6c2eb6;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.button-container button:hover {
+  background: #6c2eb6;
+  color: #fff;
+  border-color: #c299fc;
+}
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+    .header-title { font-size: 1.3em; padding: 5px 14px;}
+    .ps-btn { width: 90px; height: 90px;}
+    .ps-btn svg { width: 44px; height: 44px;}
+}

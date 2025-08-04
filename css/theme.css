@@ -1,0 +1,152 @@
+/* Main background and text */
+body, .bg-dark {
+  background: linear-gradient(135deg, #181018 0%, #2a1840 100%) !important;
+  color: #e0d6ff !important;
+}
+
+/* Navbar */
+.bg-purple, .navbar.bg-purple, .bg-gradient {
+  background: linear-gradient(90deg, #6c2eb6 0%, #181018 100%) !important;
+  box-shadow: 0 2px 24px #6c2eb6a0;
+  border-bottom: 2px solid #c299fc;
+}
+
+/* Buttons */
+.btn-purple {
+  background: linear-gradient(90deg, #6c2eb6 0%, #c299fc 100%) !important;
+  color: #fff !important;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #6c2eb660;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-purple:hover, .btn-purple:focus {
+  background: linear-gradient(90deg, #c299fc 0%, #6c2eb6 100%) !important;
+  color: #181018 !important;
+  box-shadow: 0 4px 24px #c299fc80, 0 0 8px #c299fc;
+  transform: scale(1.05);
+}
+
+.btn-purple:active {
+  background: #6c2eb6 !important;
+  color: #fff !important;
+}
+
+/* Spinner */
+.spinner-border.text-purple {
+  border-color: #c299fc #24142e #24142e #24142e !important;
+}
+
+/* Card and Console */
+.card.bg-dark, #DebugConsole {
+  background: rgba(36, 20, 46, 0.85) !important;
+  color: #e0d6ff !important;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #6c2eb6a0;
+  border: 1px solid #c299fc;
+  backdrop-filter: blur(8px);
+}
+
+.card-header {
+  background: linear-gradient(90deg, #6c2eb6 0%, #181018 100%) !important;
+  color: #fff !important;
+  font-weight: bold;
+  border-bottom: 1px solid #c299fc;
+  letter-spacing: 1px;
+}
+
+/* Console text */
+#console {
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  font-size: 1em;
+  color: #c299fc;
+  background: rgba(24, 16, 24, 0.7);
+  border-radius: 8px;
+  padding: 12px;
+  min-height: 120px;
+  box-shadow: 0 2px 8px #6c2eb660;
+  border: 1px solid #6c2eb6;
+}
+
+/* Modal */
+.modal-content.bg-purple {
+  background: rgba(36, 20, 46, 0.98) !important;
+  color: #e0d6ff !important;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px #c299fc80;
+  border: 2px solid #c299fc;
+  backdrop-filter: blur(12px);
+}
+
+.modal-header {
+  border-bottom: 1px solid #c299fc;
+}
+
+.btn-close.btn-close-white {
+  filter: invert(1) brightness(2);
+}
+
+/* Section titles */
+h2, h3, .modal-title {
+  color: #c299fc !important;
+  text-shadow: 0 2px 12px #6c2eb6a0;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Payloads grid */
+.row .btn-purple {
+  margin-bottom: 8px;
+  box-shadow: 0 2px 12px #6c2eb660;
+}
+
+.row .col {
+  padding: 8px;
+}
+
+/* Glassmorphism effect for containers */
+.container, .popup, .modal-content {
+  background: rgba(36, 20, 46, 0.85) !important;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #6c2eb6a0;
+  backdrop-filter: blur(8px);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #24142e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6c2eb6;
+  border-radius: 8px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .navbar-brand { font-size: 1.5em; }
+  .container { max-width: 98vw; }
+}
+
+@media (max-width: 600px) {
+  .navbar-brand { font-size: 1.1em; }
+  .modal-content { padding: 12px 4px; }
+  .row .col { padding: 4px; }
+}
+
+/* Glowing effect for important buttons */
+.btn-purple.glow {
+  box-shadow: 0 0 16px 4px #c299fc, 0 0 32px 8px #6c2eb6;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 8px 2px #c299fc, 0 0 16px 4px #6c2eb6; }
+  to   { box-shadow: 0 0 24px 8px #c299fc, 0 0 48px 16px #6c2eb6; }
+}
