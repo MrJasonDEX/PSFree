@@ -8,12 +8,62 @@
     <meta charset="UTF-8">
     <title>PSFree</title>
     <link rel="stylesheet" href="./css/index.css">
+    <style>
+      body {
+        background-color: #181028;
+        color: #eee;
+      }
+      .navbar {
+        background-color: #8000ff !important;
+      }
+      .navbar-brand, .navbar-nav .nav-link, .btn-outline-light {
+        color: #fff !important;
+      }
+      .btn-primary, .btn-secondary, .nav-link.active {
+        background-color: #8000ff !important;
+        border-color: #8000ff !important;
+        color: #fff !important;
+      }
+      .btn-secondary {
+        background-color: #222 !important;
+        border-color: #8000ff !important;
+        color: #fff !important;
+      }
+      .modal-content {
+        background-color: #181028;
+        color: #eee;
+        border: 2px solid #8000ff;
+      }
+      .modal-header, .modal-footer {
+        border-color: #8000ff;
+      }
+      .form-check-input:checked {
+        background-color: #8000ff;
+        border-color: #8000ff;
+      }
+      .nav-pills .nav-link.active {
+        background-color: #8000ff !important;
+      }
+      .bg-dark {
+        background-color: #222 !important;
+      }
+      .spinner-border.text-primary {
+        color: #8000ff !important;
+      }
+      .shadow-sm, .shadow {
+        box-shadow: 0 0 10px #8000ff33 !important;
+      }
+      /* Optional: highlight headers */
+      h1, h2, h3 {
+        color: #b47cff;
+      }
+    </style>
     <script>
         function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));document.title="Installing offline cache: " + Percent + "%";}
         function DisplayCacheProgress(){setTimeout(function(){;document.title="Cache Success !";},1000);setTimeout(function(){window.location.href = document.referrer;},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
     </script>
   </head>
-  <body class="bg-light">
+  <body class="bg-dark">
     <!-- Floating Menu -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
       <div class="container-fluid">
