@@ -26,11 +26,11 @@ This repo only support PS4 for now.
 # How to run
 
 ## Website
-[Click Here](https://nazky.github.io/PSFree/)
+[Click Here](https://mrjasondex.github.io/PSFree/)
 
 ## Locally
 
-You need python !
+You need python but why do you want too lol its already puplic!
 
 ### Python
 ##### Linux:
